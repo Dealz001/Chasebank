@@ -1,0 +1,50 @@
+<!-- Script for Responsive Navigation Toggle -->
+<script>
+    // Mobile Navigation Menu Toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function () {
+        const nav = document.querySelector('.nav');
+        nav.classList.toggle('nav-open');
+    });
+</script>
+
+<!-- Script for Carousel/Slider -->
+<script>
+    // Image Carousel (for example, to rotate promotional banners)
+    let currentIndex = 0;
+
+    const slides = document.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        // Hide all slides
+        slides.forEach(slide => slide.style.display = 'none');
+
+        // Show the current slide
+        slides[index].style.display = 'block';
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    // Start the carousel
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds
+
+    // Initialize carousel by showing the first slide
+    showSlide(currentIndex);
+</script>
+
+<!-- Script for Form Validation (Simple Email Validation) -->
+<script>
+    // Simple form validation for email
+    document.querySelector('#form-submit').addEventListener('click', function (event) {
+        const email = document.querySelector('#email');
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        if (!emailRegex.test(email.value)) {
+            alert('Please enter a valid email address.');
+            event.preventDefault();
+        }
+    });
+</script>
